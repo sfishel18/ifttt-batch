@@ -4,20 +4,11 @@ on: [push]
 
 jobs:
   build:
-    runs-on: node:10-alpine
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v1
 
-      - name: Cache node modules
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
       - name: Install dependencies
+        uses: docker://node:10-alpine
         run: npm install
