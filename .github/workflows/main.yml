@@ -34,4 +34,4 @@ jobs:
       - name: Deploy Cloud Function
         env:
           AUTH_KEY: ${{ secrets.AUTH_KEY }}
-        run: npm run deploy
+        run: gcloud functions deploy ifttt-batch --project that-that-that --runtime nodejs10 --entry-point index --trigger-http --allow-unauthenticated --set-env-vars AUTH_KEY=$AUTH_KEY
