@@ -33,9 +33,6 @@ jobs:
           echo ${GCLOUD_SERVICE_KEY} > /tmp/keyfile.json
           gcloud auth activate-service-account --key-file /tmp/keyfile.json
 
-      - name: Debug Before Deployment
-        run: ls -a
-
       - name: Deploy Cloud Function
         env:
           AUTH_KEY: ${{ secrets.AUTH_KEY }}
