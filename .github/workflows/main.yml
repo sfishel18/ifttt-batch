@@ -24,6 +24,8 @@ jobs:
     needs: Test
 
     steps:
+      - uses: actions/checkout@v1
+
       - name: Init Gcloud CLI
         env:
           GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
