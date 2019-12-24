@@ -30,8 +30,8 @@ jobs:
         env:
           GCLOUD_SERVICE_KEY: ${{ secrets.GCLOUD_SERVICE_KEY }}
         run: |
-          echo ${GCLOUD_SERVICE_KEY} > keyfile.json
-          gcloud auth activate-service-account --key-file keyfile.json
+          echo ${GCLOUD_SERVICE_KEY} > /tmp/keyfile.json
+          gcloud auth activate-service-account --key-file /tmp/keyfile.json
 
       - name: Debug Before Deployment
         run: ls -a
