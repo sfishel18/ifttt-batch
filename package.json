@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy": "source .env && gcloud functions deploy ifttt-batch --project that-that-that --runtime nodejs10 --entry-point index --trigger-http --allow-unauthenticated --set-env-vars AUTH_KEY=$AUTH_KEY",
-    "start": "source .env && AUTH_KEY=$AUTH_KEY functions-framework --source ./index.js --target index",
-    "test": "source .env && AUTH_KEY=$AUTH_KEY jest"
+    "deploy": "touch .env && source .env && gcloud functions deploy ifttt-batch --project that-that-that --runtime nodejs10 --entry-point index --trigger-http --allow-unauthenticated --set-env-vars AUTH_KEY=$AUTH_KEY",
+    "start": "touch .env && source .env && AUTH_KEY=$AUTH_KEY functions-framework --source ./index.js --target index",
+    "test": "touch .env && source .env && AUTH_KEY=$AUTH_KEY jest"
   },
   "repository": {
     "type": "git",

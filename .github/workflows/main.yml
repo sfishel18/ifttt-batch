@@ -14,4 +14,6 @@ jobs:
         run: npm install
 
       - name: Run tests
+        env:
+          AUTH_KEY: ${{ secrets.AUTH_KEY }}
         run: ./node_modules/.bin/concurrently -k --success first "npm run start" "npm run test"
