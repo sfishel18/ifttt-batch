@@ -3,7 +3,7 @@ name: CI
 on: [push]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     container: node:10-alpine
 
@@ -12,3 +12,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Run tests
+        run: ./node_modules/.bin/concurrently -k --success first "npm run start" "npm run test"

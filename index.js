@@ -10,6 +10,10 @@ const stringify = input =>
  * @param {!express:Response} res HTTP response context.
  */
 exports.index = (req, res) => {
+  if (req.method === "HEAD") {
+    res.status(200).send();
+    return;
+  }
   const { auth, webhooks } = req.body;
   if (auth !== process.env.AUTH_KEY) {
     res.status(401).send("Access denied");

@@ -1,7 +1,9 @@
+const waitOn = require("wait-on");
 const axios = require("axios");
 const { API_URL = "http://localhost:8080" } = process.env;
 
 describe("index function", () => {
+  beforeAll(() => waitOn({ resources: [API_URL] }));
   test("access denied if auth is wrong", () => {
     expect.assertions(2);
     return axios
