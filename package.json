@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/sfishel18/ifttt-batch#readme",
   "dependencies": {
-    "axios": "^0.19.0"
+    "axios": "^0.19.0",
+    "promise-tools": "^2.1.0"
   },
   "devDependencies": {
     "@google-cloud/functions-framework": "^1.3.2",

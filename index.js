@@ -1,4 +1,5 @@
 const axios = require("axios");
+const promiseTools = require("promise-tools")
 
 const stringify = input =>
   typeof input === "string" ? input : JSON.stringify(input);
@@ -23,8 +24,8 @@ exports.index = (req, res) => {
     res.status(400).send('Required argument "webhooks" is missing or empty');
     return;
   }
-  Promise.all(
-    webhooks.map(hook =>
+  promiseTools.series(
+    webhooks.map(hook => () =>
       axios.get(hook).catch(error => ({
         data: `Error from ${hook}: ${stringify(error.response.data)}`
       }))
